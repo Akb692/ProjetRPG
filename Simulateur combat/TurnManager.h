@@ -3,12 +3,6 @@
 
 class TurnManager
 {
-private:
-
-
-
-
 public:
-	void EnemyTurn(Character* Enemy, Character* player);
+    void EnemyTurn(Character* Enemy, Character* player);
 };
-

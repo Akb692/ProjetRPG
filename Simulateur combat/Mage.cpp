@@ -1,23 +1,25 @@
 #include "Mage.h"
+#include <iostream>
 using namespace std;
 
-Mage::Mage(const std::string& n, int h, int atk, int def, int spatk, int spdef, int spd, bool alive)
-	: Character(n, h, atk, def, spatk, spdef, spd, alive) {
+Mage::Mage(const std::string& n, int h, int atk, int def, int spatk, int spdef, int spd, bool alive, int gold,int potion)
+    : Character(n, h, atk, def, spatk, spdef, spd, alive, gold,potion) {
 }
 
 void Mage::Attack(Character& target)
 {
-	std::cout << "The mage strikes with his staff! ";
-	target.TakeDmg(target, StatAtk);
+    std::cout << GetName() << " strikes with his staff! " << std::endl;
+    target.TakeDmg(*this, StatAtk);
 }
+
 void Mage::SpAttack(Character& target)
 {
-	cout << "The mage fires his fireballs ! ";
-	target.TakeSpeDmg(target, StatSpAtk);
+    cout << GetName() << " fires his fireballs! " << std::endl;
+    target.TakeSpeDmg(*this, StatSpAtk);
 }
 
 void Mage::Heal()
 {
-	cout << "The mage heals himself ! ";
-	ReceiveHeal();
+    cout << GetName() << " heals himself! " << std::endl;
+    ReceiveHeal();
 }

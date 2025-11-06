@@ -1,16 +1,12 @@
 #pragma once
-#include <vector>
 #include "Character.h"
+
+// Forward declaration pour éviter l'inclusion circulaire
+class GameManager;
+
 class InputManager
 {
-
-private:
-	
-
 public:
-
-	int AskAction();
-	void MapAction();
-
+    int AskAction();
+    void MapAction(Character* player, GameManager* gm);
 };
-

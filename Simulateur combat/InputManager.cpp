@@ -1,53 +1,55 @@
 #include "InputManager.h"
-#include "Character.h"
 #include "GameManager.h"
+#include <iostream>
+#include <cstdlib>
 
 int InputManager::AskAction()
 {
-	int input;
+    int input;
+    std::cout << "Select an action : ";
+    std::cout << " 1 : Atk ";
+    std::cout << " 2 : SpeAtk ";
+    std::cout << " 3 : Heal "<< std::endl;
+    std::cin >> input;
 
-	std::cout << "Select an action : " << std::endl;
-	std::cout << " 1 : Atk " << std::endl;
-	std::cout << " 2 : SpeAtk " << std::endl;
-	std::cout << " 3 : Heal " << std::endl;
-	std::cin >> input;
-
-	if (input != 1 and input != 2 and input != 3)
-	{
-		std::cout << "Invalid choice. Try again : ";
-		std::cin >> input;
-	}
-
-	return input;
+    while (input != 1 && input != 2 && input != 3)
+    {
+        std::cout << "Invalid choice. Try again : " << std::endl;
+        std::cin >> input;
+    }
+    return input;
 }
 
-void InputManager::MapAction()
+void InputManager::MapAction(Character* player, GameManager* gm)
 {
-	char choice;
-	int encounter = rand() % 3 + 1;
+    char choice;
+    int encounter = rand() % 4 + 1;
 
-	std::cout << "Choose a place to go : N/S/E/W " << std::endl;
+    std::cout << "Choose a place to go : N/S/E/W " << std::endl;
+    std::cin >> choice;
 
-	std::cin >> choice;
+    while (choice != 'N' && choice != 'n' && choice != 'E' && choice != 'e' && choice != 'S' && choice != 's' && choice != 'W' && choice != 'w')
+    {
+        std::cout << "Invalid input. Try again." << std::endl;
+        std::cin >> choice;
+    }
 
-	while (choice != 'N' and choice != 'n' and choice != 'E' and choice != 'e' and choice != 'S' and choice != 's' and choice != 'W' and choice != 'w')
-	{
-		std::cout << "Invalid input. Try again." << std::endl;
-		std::cin >> choice;
-	}
-
-	
-	switch (encounter)
-	{
-	case 1:
-		std::cout << "You find a chest" << std::endl;
-		break;
-	case 2:
-		std::cout << "You find a loot" << std::endl;
-		break;
-	case 3:
-		std::cout << "You find a mob" << std::endl;
-		break;
-	}
-
+    switch (encounter)
+    {
+    case 1: {
+        int randgold = rand() % 51 + 50; 
+        std::cout << "\033[33mYou find a chest ! : + " << randgold << " gold !\033[0m" << std::endl;
+        break;
+    }
+    case 2:
+        std::cout << "You find a loot (not implemented yet)" << std::endl;
+        break;
+    case 3:
+        std::cout << "You encounter someone..." << std::endl;
+        gm->StartCombat();
+        break;
+    case 4:
+        std::cout << "Nothing seems to happen..." << std::endl;
+        break;
+    }
 }

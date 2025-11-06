@@ -1,20 +1,15 @@
 #include <iostream>
-#include <vector>
-#include "Character.h"
-#include "Berserker.h"
-#include "Hybrid.h"
-#include "Mage.h"
-#include "GameInput.h"
-#include "GameManager.h"
+#include <ctime>
 #include <cstdlib>
-using namespace std;
+#include "GameManager.h"
 
 int main()
 {
-    GameManager manager;
-    srand(time(NULL));
+    srand(static_cast<unsigned>(time(nullptr)));
 
-    //manager.Init();
-    //manager.Run();
-    manager.Test();
+    GameManager manager;
+    manager.Init();
+    manager.Run();
+    manager.ShutDown();
+    return 0;
 }
