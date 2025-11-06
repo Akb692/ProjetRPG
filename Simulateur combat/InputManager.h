@@ -1,7 +1,5 @@
 #pragma once
 #include "Character.h"
-
-// Forward declaration pour éviter l'inclusion circulaire
 class GameManager;
 
 class InputManager

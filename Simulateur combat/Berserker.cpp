@@ -2,8 +2,8 @@
 #include <iostream>
 using namespace std;
 
-Berserker::Berserker(const std::string& n, int h, int atk, int def, int spatk, int spdef, int spd, bool alive, int gold, int potion)
-    : Character(n, h, atk, def, spatk, spdef, spd, alive, gold, potion) {
+Berserker::Berserker(const std::string& n, int h, int atk, int def, int spatk, int spdef, int spd, bool alive, int gold, int potion, int bosskey, bool isBossAlive)
+    : Character(n, h, atk, def, spatk, spdef, spd, alive, gold, potion, bosskey, isBossAlive) {
 }
 
 void Berserker::Attack(Character& target)

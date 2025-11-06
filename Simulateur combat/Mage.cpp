@@ -2,8 +2,8 @@
 #include <iostream>
 using namespace std;
 
-Mage::Mage(const std::string& n, int h, int atk, int def, int spatk, int spdef, int spd, bool alive, int gold,int potion)
-    : Character(n, h, atk, def, spatk, spdef, spd, alive, gold,potion) {
+Mage::Mage(const std::string& n, int h, int atk, int def, int spatk, int spdef, int spd, bool alive, int gold,int potion, int bosskey, bool isBossAlive)
+    : Character(n, h, atk, def, spatk, spdef, spd, alive, gold,potion, bosskey,isBossAlive) {
 }
 
 void Mage::Attack(Character& target)
@@ -18,8 +18,3 @@ void Mage::SpAttack(Character& target)
     target.TakeSpeDmg(*this, StatSpAtk);
 }
 
-void Mage::Heal()
-{
-    cout << GetName() << " heals himself! " << std::endl;
-    ReceiveHeal();
-}

@@ -2,8 +2,8 @@
 #include <iostream>
 using namespace std;
 
-Hybrid::Hybrid(const std::string& n, int h, int atk, int def, int spatk, int spdef, int spd, bool alive, int gold,int potion)
-    : Character(n, h, atk, def, spatk, spdef, spd, alive, gold,potion) {
+Hybrid::Hybrid(const std::string& n, int h, int atk, int def, int spatk, int spdef, int spd, bool alive, int gold,int potion, int bosskey, bool isBossAlive)
+    : Character(n, h, atk, def, spatk, spdef, spd, alive, gold,potion, bosskey, isBossAlive) {
 }
 
 void Hybrid::Attack(Character& target)

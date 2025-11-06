@@ -4,7 +4,7 @@
 class Berserker : public Character
 {
 public:
-    Berserker(const std::string& n, int h, int atk, int def, int spatk, int spdef, int spd, bool alive, int gold,int potion);
+    Berserker(const std::string& n, int h, int atk, int def, int spatk, int spdef, int spd, bool alive, int gold,int potion,int bosskey, bool isBossAlive);
     void Attack(Character& target) override;
     void Rage(Character& target);
     void SpAttack(Character& target) override;

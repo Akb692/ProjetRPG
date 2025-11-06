@@ -15,10 +15,12 @@ public:
     int StatSpeed;
     int Gold;
     int Potion;
+    int FinalBossKey;
+    bool isBossAlive;
     bool IsAlive;
     
 
-    Character(const std::string& n, int h, int atk, int def, int spatk, int spdef, int spd, bool alive, int gold, int potion);
+    Character(const std::string& n, int h, int atk, int def, int spatk, int spdef, int spd, bool alive, int gold, int potion, int bosskey, bool isBossAlive);
     
     std::string GetName() const { return name; }
     void DisplayStat() const;

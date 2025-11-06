@@ -2,8 +2,8 @@
 #include <iostream>
 using namespace std;
 
-Character::Character(const std::string& n, int h, int atk, int def, int spatk, int spdef, int spd, bool alive, int gold ,int potions)
-    : name(n), Health(h), MaxHealth(h), StatAtk(atk), StatDef(def), StatSpAtk(spatk), StatSpDef(spdef), StatSpeed(spd), Gold(gold),Potion(potions), IsAlive(alive) {
+Character::Character(const std::string& n, int h, int atk, int def, int spatk, int spdef, int spd, bool alive, int gold, int potions, int bosskey, bool BossAlive)
+    : name(n), Health(h), MaxHealth(h), StatAtk(atk), StatDef(def), StatSpAtk(spatk), StatSpDef(spdef), StatSpeed(spd), Gold(gold), Potion(potions), IsAlive(alive), FinalBossKey(bosskey), isBossAlive(BossAlive) {
 }
 
 void Character::DisplayStat() const
@@ -15,7 +15,7 @@ void Character::DisplayStat() const
     std::cout << "SpeAtk : " << StatSpAtk << std::endl;
     std::cout << "SpeDef : " << StatSpDef << std::endl;
     std::cout << "Speed : " << StatSpeed << std::endl;
-    std::cout << " " << std::endl;
+    std::cout << "Gold :  " << Gold << std::endl;
 }
 
 int Character::DisplayHealth()
